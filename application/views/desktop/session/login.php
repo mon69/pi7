@@ -62,6 +62,15 @@
 		<div class = 'row'>
 			<div class = 'span3' style="width:220px;">
 				<?=form_submit('login_submit',"Login","class = 'btn btn-primary btn-block'")?>
+
+				<button 
+					type = 'button' 
+					class = 'btn btn-warning btn-block' 
+					
+					<?=clickHref('user/users/new')?>
+				>
+					<i class = 'icon-th-large icon-white'></i><?=nbs(3)?>Registrarse
+				</button>
 			</div>
 		</div>
 
