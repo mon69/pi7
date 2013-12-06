@@ -4,7 +4,7 @@
 
 <br/><br/>
 
-<?=form_open('user/clients')?>
+<?=form_open('user/users')?>
 <div class = 'row-fluid'>
 	<div class = 'span6 offset1'>
 		<div class="control-group">
@@ -35,7 +35,7 @@
 			
 			<?php
 				if ( array_key_exists(3, $permissions[$screen]) )
-					echo "<div class = 'span6 bggreen' id = 'list' onclick=\"redirect('user/clients/list')\">";
+					echo "<div class = 'span6 bggreen' id = 'list' onclick=\"redirect('user/users/lists')\">";
 				else
 					echo "<div class = 'span6 bgred notallow'>";
 			?>
@@ -55,7 +55,7 @@
 
 			<?php
 				if ( array_key_exists(1, $permissions[$screen]) )
-					echo "<div class = 'span6 bggreen' id = 'new' onclick=\"redirect('user/clients/new')\">";
+					echo "<div class = 'span6 bggreen' id = 'new' onclick=\"redirect('user/users/newUser')\">";
 				else
 					echo "<div class = 'span6 bgred notallow'>";
 			?>
@@ -75,11 +75,14 @@
 			</div>
 			
 		</div>
+
+		<!--
 		<div class = 'row-fluid' >
 
+			
 			<?php
 				if ( array_key_exists(4, $permissions[$screen]) )
-					echo "<div class = 'span6 bggreen' id = 'edit' onclick=\"redirect('user/clients/edit')\">";
+					echo "<div class = 'span6 bggreen' id = 'edit' onclick=\"redirect('user/users/editUser')\">";
 				else
 					echo "<div class = 'span6 bgred notallow'>";
 			?>
@@ -99,7 +102,7 @@
 
 			<?php
 				if ( array_key_exists(2, $permissions[$screen]) )
-					echo "<div class = 'span6 bggreen' id = 'delete' onclick=\"redirect('user/clients/delete')\">";
+					echo "<div class = 'span6 bggreen' id = 'delete' onclick=\"redirect('user/users/delete')\">";
 				else
 					echo "<div class = 'span6 bgred notallow'>";
 			?>
@@ -118,6 +121,7 @@
 			</div>
 			
 		</div>
+		-->
 	</div>
 </div>
 	
