@@ -4,37 +4,17 @@
 
 <br/>
 
-<?=form_open('user/users/newUser')?>
+<?=form_open('user/clients/editClient/'.$client->idCliente)?>
 <div class = 'row-fluid'>
 	<div class = 'span7 offset1'>
 
-		<legend>Nuevo</legend>
+		<legend>Editar</legend>
 		<div class="control-group">
-			<label class = 'control-label' for = 'txt_nombre'>Nombre Completo</label>
+			<label class = 'control-label' for = 'txt_nombre'>Nombre</label>
 			<div class="controls">
 				<div class="input-prepend">
 					<span class="add-on"><i class="icon-user"></i></span>
-					<?=form_input('txt_nombre',''," placeholder = 'Peter Parker' class = 'input-xxlarge' ")?>
-				</div>
-			</div>
-		</div>
-
-		<div class="control-group">
-			<label class = 'control-label' for = 'txt_usuario'>Nombre Usuario</label>
-			<div class="controls">
-				<div class="input-prepend">
-					<span class="add-on"><i class="icon-user"></i></span>
-					<?=form_input('txt_usuario',''," placeholder = 'PeterPK' class = 'input-xxlarge' ")?>
-				</div>
-			</div>
-		</div>
-
-		<div class="control-group">
-			<label class = 'control-label' for = 'txt_password'>Contraseña</label>
-			<div class="controls">
-				<div class="input-prepend">
-					<span class="add-on"><i class="icon-th"></i></span>
-					<?=form_input('txt_password',''," placeholder = '*********' class = 'input-xxlarge' ")?>
+					<?=form_input('txt_nombre',$client->txt_nombre," placeholder = 'Nombre' class = 'input-xlarge' disabled='disabled'")?>
 				</div>
 			</div>
 		</div>
@@ -44,7 +24,7 @@
 			<div class="controls">
 				<div class="input-prepend">
 					<span class="add-on"><i class="icon-bullhorn"></i></span>
-					<?=form_input('txt_telefono',''," placeholder = '3121364479' class = 'input-xxlarge' maxlength='10' ")?>
+					<?=form_input('txt_telefono',$client->txt_telefono," placeholder = '3121273647' class = 'input-xlarge' maxlength='10' disabled='disabled'disabled='disabled'")?>
 				</div>
 			</div>
 		</div>
@@ -54,11 +34,10 @@
 			<div class="controls">
 				<div class="input-prepend">
 					<span class="add-on"><i class="icon-envelope"></i></span>
-					<?=form_input('txt_correo',''," placeholder = 'algo@hotmail.com' class = 'input-xxlarge' maxlength='50' ")?>
+					<?=form_input('txt_correo',$client->txt_correo," placeholder = 'algo@dominio.com' class = 'input-xlarge' maxlength='50' disabled='disabled'")?>
 				</div>
 			</div>
 		</div>
-
 	</div>
 </div>
 
@@ -79,7 +58,7 @@
 			<div class="controls">
 				<div class="input-prepend">
 					<span class="add-on"><i class="icon-map-marker"></i></span>
-					<?=form_input('lat',''," placeholder = '19.256' class = 'input-small' ")?>
+					<?=form_input('lat',$client->lat," placeholder = '19.256' class = 'input-small' disabled='disabled'")?>
 				</div>
 			</div>
 			<br/>
@@ -87,12 +66,12 @@
 			<div class="controls">
 				<div class="input-prepend">
 					<span class="add-on"><i class="icon-map-marker"></i></span>
-					<?=form_input('lng',''," placeholder = '-103.546' class = 'input-small' ")?>
+					<?=form_input('lng',$client->lng," placeholder = '-103.546' class = 'input-small' disabled='disabled'")?>
 				</div>
 			</div>
 		</div>
 		<br/>
-		<button type = 'submit' class = 'btn btn-large btn-primary'><i class = 'icon-ok icon-white'></i> Guardar</button>
+		<!-- <button type = 'submit' class = 'btn btn-info'>Mostar mapa</button> -->
 
 	</div>
 
@@ -108,6 +87,6 @@
 
 <script type="text/javascript">
 	$(function(){
-		clientNew();
+		clientEdit(<?=$client->lat?>,<?=$client->lng?>);
 	});
 </script>

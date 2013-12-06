@@ -164,6 +164,31 @@ class Clients extends MY_Controller{
 		$this->myview('user/clients/index',$data);
 	}
 
+	public function map($id=null)
+	{
+		if ($id == null)
+			redirect("user/clients/");
+
+		$this->perm = 4;
+
+		if ( !$this->verify( $this->screen , $this->perm) )
+			redirect('user/welcome');
+
+		$this->goBackUrl = "user/clients";
+		$this->sidebar = 0;
+
+		$this->title = 'Cliente mapa';
+
+		$this->load->model('ctrl_clientes_model','client');
+
+		$data['client'] = $this->client->getById($id);
+		$data['screen'] = $this->screen;
+		$data['perm'] = $this->perm;
+		$data['permissions'] = $this->session->userdata('permission');		
+
+		$this->myview('user/clients/map',$data);
+	}
+
 	public function query($query = ''){
 		$this->perm = 3;
 

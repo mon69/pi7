@@ -108,6 +108,6 @@
 
 <script type="text/javascript">
 	$(function(){
-		editUser(<?=$user->lat?>,<?=$user->lng?>);
+		clientEdit(<?=$user->lat?>,<?=$user->lng?>);
 	});
 </script>
