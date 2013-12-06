@@ -76,6 +76,10 @@
 						echo "<li>" . anchor( "user/router/go/{$perm[0]}", "<i class = 'icon-list-alt icon-white'></i>&nbsp;&nbsp;{$perm[0]}" ) . "</li>";
 					}
 
+					if ( $perm[0] == 'Cobro' ) {
+						echo "<li>" . anchor( "user/router/go/{$perm[0]}", "<i class = 'icon-list-alt icon-white'></i>&nbsp;&nbsp;{$perm[0]}" ) . "</li>";
+					}
+
 					if ( $perm[0] == 'Rutas' ) {
 						echo "<li>" . anchor( "user/router/go/{$perm[0]}", "<i class = 'icon-road icon-white'></i>&nbsp;&nbsp;{$perm[0]}" ) . "</li>";
 					}

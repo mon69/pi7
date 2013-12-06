@@ -3,5 +3,5 @@
 </div>
 
 
-
+<?=dump($this->session->all_userdata())?>
 
