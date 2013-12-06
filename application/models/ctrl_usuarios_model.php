@@ -1,5 +1,5 @@
 <?php
-	class Ctrl_clientes_model extends MY_Model {
+	class Ctrl_usuarios_model extends MY_Model {
 
 		function __construct()
 		{
