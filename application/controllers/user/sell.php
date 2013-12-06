@@ -74,24 +74,24 @@ class Sell extends MY_Controller{
 
 		if ( $this->input->post() ) {
 
-		}else{
+		}
 
-			$this->load->model( 'ctrl_clientes_model' , 'clients' );
-			$clients = $this->clients->getAllAsArray();
-			$clientsToView = array('');
-			foreach ($clients as $client) {
-				$clientsToView[] = $client['txt_nombre'];
-			}
-
-		} // INPUT POST
+		$this->load->model( 'ctrl_clientes_model' , 'clients' );
+		$clients = $this->clients->getAllAsArray();
+		$clientsToView = array('');
+		foreach ($clients as $client) {
+			$clientsToView[] = $client['txt_nombre'];
+		}
 		
 		$this->load->model('cat_productos_model','products');
 		$this->goBackUrl = "user/sell";
+
 		$data['products'] = json_encode( $this->products->getAllProducts() ) ;
 		$data['clients'] = $clientsToView;
 		$data['screen'] = $this->screen;
 		$data['perm'] = $this->perm;
 		$data['permissions'] = $this->session->userdata('permission');
+
 		$this->myview( 'user/sell/active' , $data );
 	}
 
