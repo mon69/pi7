@@ -1,0 +1,10 @@
+CACHE MANIFEST
+
+CACHE:
+application/libraries/js/bootstrap.min.js
+application/libraries/js/jquery.min.js
+application/views/css/bootstrap/css/boostrap-responsive.min.css
+application/views/css/bootstrap/img/glyphicons-halflings.png
+
+NETWORK:
+*
