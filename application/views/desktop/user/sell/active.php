@@ -3,15 +3,14 @@
 		<h2><?=$this->title?></h2>
 	</div>
 </div>
-
 <br/><br/>
 
-<?=form_open('user/sell/active')?>
+<?=form_open('user/sell/active/'.$clientName)?>
 	<div class = 'row'>
 		<div class = 'span3 offset1 '>
 
 			<label>Cliente</label>
-			<?=form_dropdown( 'client' , $clients )?>
+			<?=form_dropdown( 'client' , $clients , $clientName )?>
 
 		</div>
 
@@ -52,16 +51,34 @@
 				</thead>
 
 				<tbody>
+					<?php
+						$total_venta = 0;
+						if ($venta != null) {
+							
+							
+							foreach ($venta as $key => $venta_producto):
+								$total_venta += $venta_producto->cantidad * $venta_producto->precio;
+						?>
+							<tr>
+								<td><?=$venta_producto->id?></td>
+								<td><?=$venta_producto->producto?></td>
+								<td><?=$venta_producto->marca?></td>
+								<td><?=$venta_producto->contenido?></td>
+								<td><?=$venta_producto->cantidad?></td>
+								<td><?=$venta_producto->precio?></td>
+								<td>$ <?=$venta_producto->cantidad * $venta_producto->precio?></td>
+							</tr>
+						<?php endforeach;}?>
 				</tbody>
 
 				<tfoot>
-					<tr>
+					<!-- <tr>
 						<td colspan='6' class = 'subtotal'>Subtotal</td>
 						<td>$ 0.00</td>
-					</tr>
+					</tr> -->
 					<tr>
 						<td colspan='6' class = 'total'>Total</td>
-						<td>$ 0.00</td>
+						<td>$ <?=$total_venta?></td>
 					</tr>
 				</tfoot>
 			</table>

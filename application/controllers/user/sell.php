@@ -65,32 +65,37 @@ class Sell extends MY_Controller{
 	// SELL ACTIVE
 	//
 
-	public function active() {
+	public function active($clientName = null) {
 		$this->perm = 4;
 		if ( !$this->verify( $this->screen , $this->perm ) )
 			redirect('user/welcome');
 
 		$this->sidebar = 0; // 0 - CLOSE | 1 - OPEN
 
-		if ( $this->input->post() ) {
+		$this->load->model('cat_productos_model','products');
+		$this->load->model('ctrl_venta_model','venta');
+		$this->load->model('ctrl_venta_detalle_model','venta_detalle');
 
+		if ( $this->input->post() ) {
+			$this->venta->addProduct($this->input->post("product"),$clientName);
 		}
 
 		$this->load->model( 'ctrl_clientes_model' , 'clients' );
 		$clients = $this->clients->getAllAsArray();
 		$clientsToView = array('');
 		foreach ($clients as $client) {
-			$clientsToView[] = $client['txt_nombre'];
+			$clientsToView[$client['txt_nombre']] = $client['txt_nombre'];
 		}
 		
-		$this->load->model('cat_productos_model','products');
 		$this->goBackUrl = "user/sell";
 
 		$data['products'] = json_encode( $this->products->getAllProducts() ) ;
+		$data['venta'] = $this->venta->getVenta($clientName);
 		$data['clients'] = $clientsToView;
 		$data['screen'] = $this->screen;
 		$data['perm'] = $this->perm;
 		$data['permissions'] = $this->session->userdata('permission');
+		$data['clientName'] = $clientName;
 
 		$this->myview( 'user/sell/active' , $data );
 	}

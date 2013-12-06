@@ -121,12 +121,12 @@ function sellIndex () {
 //
 
 function sellActive(){
-	$('[name="product"]').keypress( function(e) {
-		if ( e.which == 13 ) {
-			e.preventDefault();
-			alert('enter');
-		}
-	});
+	// $('[name="product"]').keypress( function(e) {
+	// 	if ( e.which == 13 ) {
+	// 		e.preventDefault();
+	// 		alert('enter');
+	// 	}
+	// });
 }
 
 
